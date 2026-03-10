@@ -1,11 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/controllers/category_controller.dart';
 import 'package:flutter_application_1/views/screens/authentication_screen/login_screen.dart';
+import 'package:get/get.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  await Supabase.initialize(
+    url: 'https://upreikxoszcafyktsrae.supabase.co',
+    anonKey: '',
+  );
+
   runApp(const MyApp());
 }
 
@@ -17,14 +26,20 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
-    return MaterialApp(
+
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Supabase Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+
+      initialBinding: BindingsBuilder(() {
+        Get.put(CategoryController());
+      }),
+
+      home: const LoginScreen(),
     );
   }
 }

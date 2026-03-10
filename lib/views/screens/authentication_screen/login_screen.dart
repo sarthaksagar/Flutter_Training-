@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/auth_controller.dart';
-import 'package:flutter_application_1/views/screens/authentication_screen/main_screen.dart';
 import 'package:flutter_application_1/views/screens/authentication_screen/register_screen.dart';
+import 'package:flutter_application_1/views/screens/nev_screens/widgets/main_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -124,8 +124,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
 
                   const SizedBox(height: 15),
-
-                  /// Password
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -169,8 +167,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
 
                   const SizedBox(height: 25),
-
-                  /// Login Button
                   InkWell(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
@@ -204,7 +200,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   const SizedBox(height: 15),
 
-                  /// Register
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
